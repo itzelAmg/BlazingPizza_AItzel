@@ -15,14 +15,11 @@ namespace BlazingPizza.Server.Controllers
         {
             this.Context = context;
         }
-
         [HttpGet]
         public async Task<ActionResult<List<PizzaSpecial>>> GetSpecials()
         {
             return await Context.Specials
             .OrderByDescending(s => s.BasePrice).ToListAsync();
         }
-
-
     }
 }
